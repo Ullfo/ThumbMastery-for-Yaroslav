@@ -10,9 +10,22 @@ export default {
    ],
    theme: {
       extend: {
+         keyframes: {
+            gradientShift: {
+               "0%": { backgroundPosition: "0% 50%" },
+               "50%": { backgroundPosition: "100% 50%" },
+               "100%": { backgroundPosition: "0% 50%" },
+            },
+         },
+
+         animation: {
+            gradientShift: "gradientShift 3s ease infinite",
+         },
+
          fontFamily: {
             poppins: ["Poppins", "sans-serif"],
          },
+
          fontSize: {
             h1: ["64px", "116%"],
             h2: ["40px", "116%"],
@@ -22,6 +35,7 @@ export default {
             b1: ["16px", "124%"],
             btn: ["22px", "126%"],
          },
+
          colors: {
             background: "var(--background)",
             foreground: "var(--foreground)",
@@ -88,6 +102,7 @@ export default {
                " linear-gradient(92.78deg, rgba(3, 253, 254, 0.25) -8.74%, rgba(0, 41, 165, 0.29) 105.39%)",
             "gradient--3":
                "linear-gradient(to right, #67e8f9, #3b82f6, #2563eb)",
+            "gradient--4": "linear-gradient(90deg, #4ADE80, #16A34A, #4ADE80)",
          },
       },
    },

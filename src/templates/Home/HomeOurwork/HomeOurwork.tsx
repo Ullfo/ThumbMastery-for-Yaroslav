@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 
+import AppButton from "@/components/AppButton/AppButton";
 import VideoImage from "@/assets/images/lalala.png";
 import Avatar from "@/assets/images/man1.png";
-import AppButton from "@/components/AppButton/AppButton";
 
 const HomeOurwork: React.FC = () => {
    const data = [
@@ -18,42 +17,42 @@ const HomeOurwork: React.FC = () => {
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can Stop Me, Hollywood, Vince McMahon & Father",
          changel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trumood, Vince McMahon & Father",
          changel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can Stop Me” - Dwayne JohnsonUp On Trump, Hollywood, Vince McMahon & Father",
          changel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon",
          changel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can Stop Me” - Dwayne Joh Trump, Hollywood, Vince McMahon & Father",
          changel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: VideoImage,
          avatar: Avatar,
-         title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
+         title: "“No One Can  - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
          changel: "PBD Podcast",
          views: "740k views",
       },

@@ -100,12 +100,15 @@ const HomeChannels: React.FC = () => {
          <Marquee
             speed={30}
             pauseOnHover
-            className="flex overflow-hidden my-[100px]"
+            className="flex overflow-hidden py-[100px]"
          >
             {botData.map((item) => (
-               <li key={item.name} className="mx-2 list-none	">
+               <li
+                  key={item.name}
+                  className="mx-2 list-none duration-100 hover:-translate-y-5"
+               >
                   <video
-                     className="duration-100 overflow-hidden rounded-[20px] "
+                     className="overflow-hidden rounded-[20px]"
                      height={550}
                      width={324}
                      controls

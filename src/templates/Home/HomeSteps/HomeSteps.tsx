@@ -39,7 +39,7 @@ const HomeSteps: React.FC = () => {
                      "flex-row-reverse pt-14": index % 2 > 0,
                   })}
                >
-                  <span className="text-9xl text-primary--200">
+                  <span className="text-9xl text-primary--200 ">
                      {index + 1}
                   </span>
                   {index === 0 ? (
