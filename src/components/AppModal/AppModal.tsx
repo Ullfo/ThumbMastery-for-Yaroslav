@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-
-import useNoScroll from "@/hooks/useNoScroll";
-import AppButton from "../AppButton/AppButton";
+import { CloseSquare } from "iconsax-react";
 
 interface AppModalProps {
    visible: boolean;
@@ -17,8 +15,6 @@ const AppModal: React.FC<AppModalProps> = ({
    onClose,
    children,
 }) => {
-   useNoScroll(visible);
-
    const nodeRef = useRef<HTMLDivElement>(null);
 
    return (
@@ -38,15 +34,17 @@ const AppModal: React.FC<AppModalProps> = ({
             onPointerDown={onClose}
          >
             <div
-               className="relative bg-white rounded-[20px] p-8 max-h-[calc(100%-64px)] overflow-y-auto w-[calc(100%-64px)] sm:p-4 sm:max-w-[calc(100%-32px)] animate-scale-in"
+               className="relative bg-white rounded-[20px] p-8 sm:p-8 sm:max-w-[calc(100%-32px)]"
                style={{ width }}
                onPointerDown={(e) => e.stopPropagation()}
             >
-               <div className="absolute top-4 right-4">
-                  <AppButton iconButton onClick={onClose}>
-                     X
-                  </AppButton>
-               </div>
+               <CloseSquare
+                  size={48}
+                  variant="Bulk"
+                  color="#01838B"
+                  className="absolute top-8 right-8 cursor-pointer"
+                  onClick={onClose}
+               />
 
                {children}
             </div>
@@ -56,21 +54,3 @@ const AppModal: React.FC<AppModalProps> = ({
 };
 
 export default AppModal;
-
-// Tailwind-specific animation (add this to your global CSS file or Tailwind config)
-// In tailwind.config.js, extend the animations like this:
-// module.exports = {
-//   theme: {
-//     extend: {
-//       keyframes: {
-//         'scale-in': {
-//           '0%': { transform: 'scale(0.9)' },
-//           '100%': { transform: 'scale(1)' },
-//         },
-//       },
-//       animation: {
-//         'scale-in': 'scale-in 300ms ease-in-out',
-//       },
-//     },
-//   },
-// }

@@ -67,7 +67,7 @@ const HomeFAQ: React.FC = () => {
             ))}
          </div>
 
-         <div className="flex flex-col items-center gap-7 py-12 px-44 bg-gradient--2 rounded-[32px]">
+         <div className="flex flex-col items-center gap-7 py-12 px-44 bg-gradient--2 rounded-[32px] ">
             <h3 className="text-h2 text-grey--700 text-center font-bold ">
                Ready to start working with us?
             </h3>
