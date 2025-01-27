@@ -113,7 +113,7 @@ const HomeOurwork: React.FC = () => {
                            {item.title}
                         </h5>
                         <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
-                           <p>{item.changel}</p>
+                           <p>{item.channel}</p>
                            <p>{item.views}</p>
                         </div>
                      </div>
