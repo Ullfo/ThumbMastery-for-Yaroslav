@@ -26,14 +26,20 @@ type mainData = {
    placeHolder?: string;
 };
 
+type CountryType = {
+   name: { common: string };
+   flags?: { png: string };
+};
+
 const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
    const [inputAnswers, setInputAnswers] = useState<string[]>(
       Array(12).fill("")
    );
-
    const [errors, setErrors] = useState<boolean[]>([]);
    const [ending, setEnding] = useState<boolean>(false);
-   const [countries, setCountries] = useState([]);
+   const [countries, setCountries] = useState<
+      { label: string; flag?: string }[]
+   >([]);
 
    const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
@@ -190,13 +196,13 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
    useEffect(() => {
       fetch("https://restcountries.com/v3.1/all")
          .then((response) => response.json())
-         .then((data) => {
+         .then((data: CountryType[]) => {
             const filteredCountries = data
-               .map((country: any) => ({
+               .map((country) => ({
                   label: country.name.common,
                   flag: country.flags?.png,
                }))
-               .sort((a: Option, b: Option) => a.label.localeCompare(b.label));
+               .sort((a, b) => a.label.localeCompare(b.label));
             setCountries(filteredCountries);
          })
          .catch((error) => console.error(error));

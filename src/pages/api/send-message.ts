@@ -6,19 +6,16 @@ const TG_CHAT_ID = process.env.TG_CHAT_ID;
 export class TelegramAPI {
    public static sendMessage = async (message: string): Promise<void> => {
       try {
-         const response = await fetch(
-            `https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`,
-            {
-               method: "POST",
-               headers: {
-                  "Content-Type": "application/json",
-               },
-               body: JSON.stringify({
-                  chat_id: TG_CHAT_ID,
-                  text: message,
-               }),
-            }
-         );
+         fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+               chat_id: TG_CHAT_ID,
+               text: message,
+            }),
+         });
       } catch (error) {
          console.error(error);
       }

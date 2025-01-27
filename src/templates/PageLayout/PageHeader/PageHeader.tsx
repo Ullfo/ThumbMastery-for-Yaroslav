@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, HambergerMenu, MenuBoard, CloseSquare } from "iconsax-react";
+import { HambergerMenu, CloseSquare } from "iconsax-react";
 
 import Logo from "@/assets/images/Logo.png";
 import AppButton from "@/components/AppButton/AppButton";

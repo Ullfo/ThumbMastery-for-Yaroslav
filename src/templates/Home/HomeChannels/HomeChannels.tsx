@@ -83,7 +83,7 @@ const HomeChannels: React.FC = () => {
          className="flex flex-col items-center mb-9 sm:mb-[130px]"
       >
          <h3 className="pb-3 sm:pb-12 text-b2 sm:text-h3 text-center font-medium">
-            Trusted by YouTube’s biggest business channels
+            Trusted by YouTube&#39;s biggest business channels
          </h3>
          <ul className="flex justify-center flex-wrap gap-2 sm:gap-5">
             {topData.map((item) => (
@@ -153,8 +153,8 @@ const HomeChannels: React.FC = () => {
                Don't waste your time struggling to make a thumbnail, only for it
                to flop.
                <br />
-               <br /> No matter how good your content is, viewers won’t click
-               unless you give them a reason to do so.
+               <br /> No matter how good your content is, viewers won&#39;t
+               click unless you give them a reason to do so.
                <br />
                <br />
                Attention spans get shorter by the day, so your goal must be to
