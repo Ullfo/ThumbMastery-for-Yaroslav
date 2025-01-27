@@ -33,7 +33,9 @@ export default async function handler(
 
    try {
       await TelegramAPI.sendMessage(message);
-      return res.status(200).json({ success: true });
+      return res.status(200).json({
+         success: `TG_BOT_TOKEN:${TG_BOT_TOKEN} , TG_CHAT_ID:${TG_CHAT_ID} `,
+      });
    } catch (error) {
       return res.status(500).json(error);
    }
