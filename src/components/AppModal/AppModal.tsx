@@ -34,15 +34,14 @@ const AppModal: React.FC<AppModalProps> = ({
             onPointerDown={onClose}
          >
             <div
-               className="relative bg-white rounded-[20px] p-8 sm:p-8 sm:max-w-[calc(100%-32px)]"
+               className="relative bg-white rounded-lg sm:rounded-[20px] pl-6 pr-3 pt-8 pb-4 sm:p-8 max-w-[calc(100%-32px)]"
                style={{ width }}
                onPointerDown={(e) => e.stopPropagation()}
             >
                <CloseSquare
-                  size={48}
                   variant="Bulk"
                   color="#01838B"
-                  className="absolute top-8 right-8 cursor-pointer"
+                  className="size-[38px] sm:size-12 absolute top-2 right-2 sm:top-8 sm:right-8 cursor-pointer"
                   onClick={onClose}
                />
 

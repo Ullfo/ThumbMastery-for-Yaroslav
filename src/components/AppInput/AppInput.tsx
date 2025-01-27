@@ -9,6 +9,7 @@ export type AppInputProps = {
    height?: string;
    placeholder?: string;
    textarea?: boolean;
+   error?: boolean;
    onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
    onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 };
@@ -24,24 +25,23 @@ const AppInput: React.FC<AppInputProps> = ({
    textarea = false,
    onChange = () => {},
    onBlur = () => {},
+   error = false,
 }) => {
    return (
       <div className="w-full" style={{ maxWidth: width }}>
          {label && (
-            <label
-               htmlFor={name}
-               className="font-medium text-grey--600 mb-2 whitespace-nowrap"
-            >
+            <h5 className="text-overline2 sm:font-medium text-grey--600 mb-2 sm:whitespace-nowrap">
                {label}
-            </label>
+            </h5>
          )}
-
          {textarea ? (
             <textarea
                name={name}
                value={value}
                placeholder={placeholder}
-               className="block w-full border p-[6px] rounded-[4px] focus:ring-2 focus:ring-indigo-500 focus:border-indigo-50 text-gray-900 resize-none"
+               className={`block w-full border ${
+                  error ? "border-error--400" : "border-primary--400"
+               } p-[6px] rounded-[4px] text-overline2 focus:!border-primary--500 focus:ring-1 focus:ring-primary--300 outline-none`}
                style={{ height }}
                onChange={onChange}
                onBlur={onBlur}
@@ -52,10 +52,17 @@ const AppInput: React.FC<AppInputProps> = ({
                type={type}
                value={value}
                placeholder={placeholder}
-               className="block w-full border p-[6px] rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+               className={`block w-full border ${
+                  error ? "border-error--400" : "border-primary--400"
+               } px-[6px] h-9 rounded-[4px] text-overline2 focus:!border-primary--500 focus:ring-1 focus:ring-primary--300 outline-none`}
                onChange={onChange}
                onBlur={onBlur}
             />
+         )}
+         {error && (
+            <p className="px-5 text-overline1 text-error--600">
+               please fill in this field
+            </p>
          )}
       </div>
    );

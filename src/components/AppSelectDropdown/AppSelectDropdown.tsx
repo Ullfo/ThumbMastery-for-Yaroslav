@@ -1,73 +1,86 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { ArrowCircleDown } from "iconsax-react";
 
-export type SelectDropdownProps = {
+export type Option = {
+   label: string;
+   flag?: string;
+};
+
+type AppSelectDropdownProps = {
    value: string;
-   options: string[];
+   options: Option[];
    width?: string;
    label?: string;
+   error: boolean;
+   isOpen: boolean;
    placeholder?: string;
    onSelect: (value: string) => void;
    onClose: () => void;
 };
 
-const SelectDropdown: React.FC<SelectDropdownProps> = ({
+const AppSelectDropdown: React.FC<AppSelectDropdownProps> = ({
    value,
    options,
-   onSelect,
-   onClose,
    width,
    label,
+   error = false,
+   isOpen,
    placeholder = "None",
+   onSelect,
+   onClose,
 }) => {
-   const [isOpen, setIsOpen] = useState(false);
    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-   const toggleDropdown = () => setIsOpen(!isOpen);
+   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-   const handleSelect = (text: string) => {
-      onSelect(text);
-      setIsOpen(false);
+   const handleSelect = (option: Option) => {
+      onSelect(option.label);
       onClose();
    };
 
-   const handleKeyPress = (e: KeyboardEvent) => {
+   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (e.key === "ArrowDown") {
          const nextIndex = activeIndex !== null ? activeIndex + 1 : 0;
          setActiveIndex(nextIndex < options.length ? nextIndex : 0);
+         e.preventDefault();
       } else if (e.key === "ArrowUp") {
          const nextIndex =
             activeIndex !== null ? activeIndex - 1 : options.length - 1;
          setActiveIndex(nextIndex < 0 ? options.length - 1 : nextIndex);
+         e.preventDefault();
       } else if (e.key === "Enter" && activeIndex !== null) {
          handleSelect(options[activeIndex]);
       } else if (e.key === "Escape") {
-         setIsOpen(false);
          onClose();
       }
    };
 
-   useEffect(() => {
-      window.addEventListener("keydown", handleKeyPress);
-      return () => window.removeEventListener("keydown", handleKeyPress);
-   }, [activeIndex]);
-
    return (
-      <div className="relative w-full" style={{ maxWidth: width }}>
+      <div
+         ref={dropdownRef}
+         tabIndex={0}
+         onKeyDown={handleKeyPress}
+         className="relative w-full"
+         style={{ maxWidth: width }}
+      >
          {label && (
-            <label className="font-medium text-grey--600 mb-2 whitespace-nowrap">
+            <h5 className="text-overline2 sm:font-medium text-grey--600 mb-1 sm:mb-2 sm:whitespace-nowrap">
                {label}
-            </label>
+            </h5>
          )}
          <button
             type="button"
-            className="cursor-pointer flex justify-between items-center p-2 border rounded-lg shadow-sm w-full text-left"
-            onClick={toggleDropdown}
+            className={`${
+               error ? "border-error--400" : "border-primary--400"
+            } cursor-pointer flex justify-between items-center px-2 h-9 border rounded-[4px] shadow-sm w-full text-left  focus:!border-primary--500 focus:ring-1 focus:ring-primary--300 outline-none`}
+            onClick={onClose}
             aria-haspopup="listbox"
             aria-expanded={isOpen ? "true" : "false"}
          >
-            <span className={value ? "" : "text-gray-400"}>
-               {options.find((option) => option === value) || placeholder}
+            <span className={`text-overline2 ${!value && "text-grey--400"}`}>
+               {options.find((option) => option.label === value)?.label ||
+                  placeholder}
             </span>
             <ArrowCircleDown
                size={20}
@@ -82,25 +95,38 @@ const SelectDropdown: React.FC<SelectDropdownProps> = ({
          {isOpen && (
             <div
                role="listbox"
-               className="absolute top-full left-0 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto z-10"
+               className={`${
+                  error ? "border-error--400" : "border-primary--400"
+               } absolute top-full left-0 w-full mt-1 bg-white border rounded-[4px] shadow-lg max-h-60 overflow-auto z-10`}
             >
                {options.map((option, index) => (
                   <div
-                     key={option}
+                     key={option.label || index}
                      role="option"
                      aria-selected={index === activeIndex ? "true" : "false"}
-                     className={`p-2 cursor-pointer hover:bg-gray-100 ${
+                     className={`flex items-center gap-2 p-2 cursor-pointer text-overline2 hover:bg-primary--100 ${
                         index === activeIndex ? "bg-gray-200" : ""
                      }`}
                      onClick={() => handleSelect(option)}
                   >
-                     {option}
+                     {option.flag && (
+                        <Image
+                           src={option.flag}
+                           alt={`${option.label} flag`}
+                           width={20}
+                           height={15}
+                        />
+                     )}
+                     {option.label}
                   </div>
                ))}
             </div>
+         )}
+         {error && (
+            <p className="px-5 text-overline1 text-error--600">please select</p>
          )}
       </div>
    );
 };
 
-export default SelectDropdown;
+export default AppSelectDropdown;

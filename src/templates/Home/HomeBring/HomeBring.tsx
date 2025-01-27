@@ -50,24 +50,36 @@ const HomeBring: React.FC = () => {
       },
    ];
    return (
-      <section className="flex flex-col items-center gap-[42px] mb-[100px]">
-         <h3 className="font-poppins text-h2 text-center font-bold">
+      <section
+         id="services"
+         className="flex flex-col items-center gap-[14px] sm:gap-[42px] mb-9 sm:mb-[100px]"
+      >
+         <h3 className="font-poppins text-b1 sm:text-h2 text-center font-medium sm:font-bold">
             What do we bring to the table?
          </h3>
-         <ul className="grid grid-cols-3 gap-4">
+         <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 pb-1 sm:pb-0">
             {data.map((item) => (
-               <li className="flex flex-col items-center text-center gap-5 max-w-[420px] rounded-3xl bg-primary--100 py-8 px-5">
+               <li
+                  key={item.title}
+                  className="flex flex-col items-center text-center gap-3 sm:gap-5 max-w-[420px] rounded-3xl bg-primary--100 py-3 sm:py-8 px-2 sm:px-5"
+               >
                   <item.image //
                      color="#003AD2"
                      variant="Bulk"
-                     size={100}
+                     className="size-[60px] sm:size-[100px]"
                   />
-                  <h4 className="text-h3 font-medium">{item.title}</h4>
-                  <p className="text-b1">{item.description}</p>
+                  <h4 className="text-b1 sm:text-h3 font-medium text-grey--700">
+                     {item.title}
+                  </h4>
+                  <p className="text-overline1 sm:text-b1 text-grey--600">
+                     {item.description}
+                  </p>
                </li>
             ))}
          </ul>
-         <AppButton width="370px">SKYROCKET YOUR GROWTH</AppButton>
+         <AppButton className="w-[275px] sm:w-[370px]">
+            SKYROCKET YOUR GROWTH
+         </AppButton>
       </section>
    );
 };

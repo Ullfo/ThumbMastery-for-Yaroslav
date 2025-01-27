@@ -13,6 +13,7 @@ export type AppButtonProps = {
    block?: boolean;
    onClick?: () => void;
    iconButton?: boolean;
+   className?: string;
 };
 
 const AppButton: React.FC<AppButtonProps> = ({
@@ -25,33 +26,35 @@ const AppButton: React.FC<AppButtonProps> = ({
    block,
    onClick,
    iconButton = false,
+   className,
 }) => {
    const baseClasses =
-      "rounded-[28px] relative inline-flex justify-center items-center text-center whitespace-nowrap transition-all cursor-pointer";
+      "text-btn2 sm:text-btn p-[7px] sm:py-2.5 rounded-[28px] border-[3px] hover:ring-[2px]";
    const sizeClasses = {
-      sm: "px-5 py-2.5 font-normal",
-      md: "px-7 py-4 font-medium text-btn",
+      sm: "px-5 font-normal",
+      md: "px-5 sm:px-7 sm:font-medium",
    };
    const variantClasses = {
       primary:
-         "bg-secondary--200 text-white bg-purple-500 border-3 border-purple-500 hover:bg-purple-700 hover:border-purple-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:border-transparent",
+         "bg-secondary--200 text-white border-secondary--200 hover:bg-secondary--400 hover:border-secondary--300 hover:ring-secondary--100",
       secondary:
-         "bg-primary--200 text-black border-3 border-purple-500 hover:border-purple-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-200",
+         "bg-primary--200 text-black border-primary--200 hover:bg-primary--300 hover:border-primary--200 hover:ring-primary--50",
    };
    const iconButtonClasses = "p-2 hover:bg-gray-200 disabled:bg-gray-100";
 
-   const className = cn(
+   const AllClasses = cn(
       baseClasses,
       iconButton ? iconButtonClasses : sizeClasses[size],
       variantClasses[variant],
       block && "w-full",
-      disabled && "pointer-events-none"
+      disabled && "pointer-events-none",
+      className
    );
 
    return (
       <button
          type={type}
-         className={className}
+         className={AllClasses}
          disabled={disabled}
          onClick={onClick}
          style={{ width }}

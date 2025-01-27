@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
       });
       return config;
    },
-   reactStrictMode: true, // Додаємо строгий режим React для покращення безпеки та продуктивності
+   reactStrictMode: true,
+   images: {
+      domains: ["flagcdn.com", "upload.wikimedia.org"],
+   },
 };
 
 export default nextConfig;

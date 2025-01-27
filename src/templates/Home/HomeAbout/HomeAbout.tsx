@@ -2,21 +2,19 @@ import React from "react";
 import Image from "next/image";
 
 import AppButton from "@/components/AppButton/AppButton";
-import CircleIcon from "@/assets/images/circle-3.png";
-import StarIcon from "@/assets/images/Star.png";
+import CircleIconee from "@/assets/images/circle-3.png";
+import CircleIcon from "@/assets/icons/circle-logo.svg";
+import StarIcon from "@/assets/icons/star.svg";
+import StarIconeee from "@/assets/images/Star.png";
 
 const HomeAbout: React.FC = () => {
    return (
-      <section className="flex flex-col max-w-[1120px] mx-auto mb-[170px]">
-         <div className="relative ml-auto">
-            <Image
-               className="absolute right-[620px] -top-[90px]"
-               src={StarIcon}
-               alt=""
-               width={760}
-               height={760}
-            />
-            <p className="text-h4 text-grey--500 max-w-[660px] pb-12">
+      <section
+         id="about-us"
+         className="flex flex-col max-w-[1120px] mx-auto mb-3 sm:mb-[170px]"
+      >
+         <div className="relative flex flex-col items-center sm:items-start sm:ml-auto">
+            <p className="text-overline2 sm:text-h4 text-grey--500 max-w-[660px] pb-4 sm:pb-12">
                If YouTube is just a hobby for you, or you’re okay with spending
                hours on Photoshop making clickbait thumbnails,
                <strong className="text-secondary--700"> THUMBMASTERY</strong> is
@@ -33,20 +31,16 @@ const HomeAbout: React.FC = () => {
                <br></br> It's time to grab, retain, and monetize their attention
                with premium packaging.
             </p>
-            <AppButton variant="secondary" width="440px">
+            <AppButton variant="secondary" className="sm:w-[440px]">
                BECOME YOUR INDUSTRY LEADER
             </AppButton>
+            <StarIcon className="absolute size-64 sm:size-[760px] rigth-[-100px] sm:right-[620px] top-48 sm:-top-[90px] -z-10" />
          </div>
-         <h3 className="mt-28 mb-16 text-h2 font-bold">About Thumbmastery</h3>
-         <div className="relative">
-            <Image
-               className="absolute left-[500px] -top-[130px]"
-               src={CircleIcon}
-               alt=""
-               width={780}
-               height={780}
-            />
-            <p className="text-h4 text-grey--500 max-w-[550px] pb-12">
+         <h3 className="mt-11 sm:mt-28 mb-3 sm:mb-16 text-center text-b2 sm:text-h2 font-medium sm:font-bold">
+            About Thumbmastery
+         </h3>
+         <div className="relative flex flex-col items-center sm:items-start">
+            <p className="text-overline2 sm:text-h4 text-grey--500 max-w-[550px] pb-4 sm:pb-12">
                <strong className="text-secondary--700">THUMBMASTERY</strong> is
                a YouTube thumbnail design and video packaging agency that helps
                business owners grow their YouTube channels. We specialize in
@@ -60,7 +54,8 @@ const HomeAbout: React.FC = () => {
                and split-testing to grab, retain, and monetize the attention of
                your ideal audience.
             </p>
-            <AppButton width="320px">WORK WITH US</AppButton>
+            <AppButton className="w-44 sm:w-[320px]">WORK WITH US</AppButton>
+            <CircleIcon className="sm:absolute size-60 sm:size-[780px] -my-3 mx-auto sm:m-0 sm:right-[-220px] sm:-top-[130px] -z-10" />
          </div>
       </section>
    );

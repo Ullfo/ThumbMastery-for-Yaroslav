@@ -34,6 +34,10 @@ export default {
             b2: ["20px", "150%"],
             b1: ["16px", "124%"],
             btn: ["22px", "126%"],
+            btn2: ["16px", "126%"],
+            overline1: ["11px", "138%"],
+            overline2: ["13px", "138%"],
+            overline3: ["8px", "126%"],
          },
 
          colors: {
@@ -103,6 +107,10 @@ export default {
             "gradient--3":
                "linear-gradient(to right, #67e8f9, #3b82f6, #2563eb)",
             "gradient--4": "linear-gradient(90deg, #4ADE80, #16A34A, #4ADE80)",
+         },
+         boxShadow: {
+            shadow1:
+               "1px 1px 3px 0px #C0C9CE1A, 4px 4px 6px 0px #C0C9CE17, 9px 10px 8px 0px #C0C9CE0D, 16px 18px 10px 0px #C0C9CE03, 25px 27px 10px 0px #C0C9CE00",
          },
       },
    },

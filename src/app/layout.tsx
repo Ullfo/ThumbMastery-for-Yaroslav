@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import PageHeader from "@/templates/PageLayout/PageHeader/PageHeader";
 import PageFooter from "@/templates/PageLayout/PageFooter/PageFooter";
@@ -19,6 +18,10 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en">
+         <head>
+            <link rel="icon" href="/favicon.ico" />
+            <link rel="apple-touch-icon" href="/favicon.ico" />
+         </head>
          <body>
             <PageHeader />
             {children}
