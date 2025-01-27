@@ -126,7 +126,7 @@ const HomeChannels: React.FC = () => {
                      <div className="flex items-center gap-1 sm:gap-3 sm:pl-2 pt-2 sm:pt-7">
                         <Image
                            src={item.image}
-                           alt=""
+                           alt={`Profile picture of ${item.name}`}
                            className="size-8 sm:size-[52px]"
                         />
                         <div>

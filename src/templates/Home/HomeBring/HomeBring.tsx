@@ -63,7 +63,7 @@ const HomeBring: React.FC = () => {
                   key={item.title}
                   className="flex flex-col items-center text-center gap-3 sm:gap-5 max-w-[420px] rounded-3xl bg-primary--100 py-3 sm:py-8 px-2 sm:px-5"
                >
-                  <item.image //
+                  <item.image
                      color="#003AD2"
                      variant="Bulk"
                      className="size-[60px] sm:size-[100px]"

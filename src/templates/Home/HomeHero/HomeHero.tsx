@@ -144,7 +144,7 @@ const HomeHero: React.FC = () => {
                   >
                      <Image
                         src={item.image}
-                        alt=""
+                        alt={`Youtube channel ${item.name}`}
                         className="size-8 sm:size-[50px]"
                      />
                      <div className="text-start text-gray-700">

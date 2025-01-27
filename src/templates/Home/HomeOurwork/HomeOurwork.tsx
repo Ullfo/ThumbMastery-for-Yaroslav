@@ -26,28 +26,28 @@ const HomeOurwork: React.FC = () => {
          image: work1,
          avatar: man1,
          title: "“No One Can Stop Me” - Dwayne Johnson Opens Up On Trump, Hollywood, Vince McMahon & Father",
-         changel: "PBD Podcast",
+         channel: "PBD Podcast",
          views: "740k views",
       },
       {
          image: work2,
          avatar: man2,
          title: "Making $10,888 every 24 hours - A day In The Life",
-         changel: "Sebastian Ghiorghiu",
+         channel: "Sebastian Ghiorghiu",
          views: "2M views",
       },
       {
          image: work3,
          avatar: man3,
          title: "How Girls Want You to TEXT THEM",
-         changel: "Hamza Ahmed",
+         channel: "Hamza Ahmed",
          views: "580k views",
       },
       {
          image: work4,
          avatar: man4,
          title: "I'm 57. If you're in your 20's please watch this.",
-         changel: "Mark Tilbury",
+         channel: "Mark Tilbury",
          views: "3M views",
       },
    ];
@@ -57,28 +57,28 @@ const HomeOurwork: React.FC = () => {
          image: work8,
          avatar: man5,
          title: "I Tried Dropshipping For 7 Days To Prove It's Not Dead",
-         changel: "Nathan Nazareth",
+         channel: "Nathan Nazareth",
          views: "740k views",
       },
       {
          image: work6,
          avatar: man6,
          title: "Beginners Guide to Dropshipping in 2024 (18+ Hours)",
-         changel: "Jordan Bown",
+         channel: "Jordan Bown",
          views: "4M views",
       },
       {
          image: work5,
          avatar: man7,
          title: "ANDREW TATE: Reveals The Truth About The Matrix, Power & Wealth | CEOCAST EP. 77",
-         changel: "CEOCAST",
+         channel: "CEOCAST",
          views: "5M views",
       },
       {
          image: work7,
          avatar: man2,
          title: "Sebb X Luke Belmar: The Simple Truth",
-         changel: "Sebastian Ghiorghiu",
+         channel: "Sebastian Ghiorghiu",
          views: "600k views",
       },
    ];
@@ -100,13 +100,13 @@ const HomeOurwork: React.FC = () => {
                <li key={item.title} className="flex-shrink-0">
                   <Image
                      src={item.image}
-                     alt=""
+                     alt={`Youtube video ${item.title}`}
                      className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
                   />
                   <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
                      <Image
                         src={item.avatar}
-                        alt=""
+                        alt={`Youtube channel ${item.channel}`}
                         className="size-[30px] sm:size-[42px]"
                      />
                      <div className="w-full text-grey--500">
@@ -128,13 +128,13 @@ const HomeOurwork: React.FC = () => {
                <li key={item.title} className="flex-shrink-0">
                   <Image
                      src={item.image}
-                     alt=""
+                     alt={`Youtube video ${item.title}`}
                      className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
                   />
                   <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
                      <Image
                         src={item.avatar}
-                        alt=""
+                        alt={`Youtube channel ${item.channel}`}
                         className="size-[30px] sm:size-[42px]"
                      />
                      <div className="w-full text-grey--500">
@@ -142,7 +142,7 @@ const HomeOurwork: React.FC = () => {
                            {item.title}
                         </h5>
                         <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
-                           <p>{item.changel}</p>
+                           <p>{item.channel}</p>
                            <p>{item.views}</p>
                         </div>
                      </div>

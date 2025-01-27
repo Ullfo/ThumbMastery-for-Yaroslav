@@ -1,11 +1,8 @@
 import React from "react";
-import Image from "next/image";
 
 import AppButton from "@/components/AppButton/AppButton";
-import CircleIconee from "@/assets/images/circle-3.png";
 import CircleIcon from "@/assets/icons/circle-logo.svg";
 import StarIcon from "@/assets/icons/star.svg";
-import StarIconeee from "@/assets/images/Star.png";
 
 const HomeAbout: React.FC = () => {
    return (
