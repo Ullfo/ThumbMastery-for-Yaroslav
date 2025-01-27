@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 import AppButton from "@/components/AppButton/AppButton";
-import Circle1 from "@/assets/images/circle-1.png";
 import man1 from "@/assets/images/man-1.png";
 import man2 from "@/assets/images/man-2.png";
 import man3 from "@/assets/images/man-3.png";
