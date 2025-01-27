@@ -32,6 +32,6 @@ export default async function handler(
       await TelegramAPI.sendMessage(message);
       return res.status(200).json({ success: true });
    } catch (error) {
-      return res.status(500).json({ error: "Failed to send message" });
+      return res.status(500).json(error);
    }
 }

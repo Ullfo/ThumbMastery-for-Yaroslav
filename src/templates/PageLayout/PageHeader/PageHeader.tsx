@@ -32,9 +32,8 @@ const PageHeader: React.FC = () => {
 
    useEffect(() => {
       const checkScreenWidth = () => {
-         window.innerWidth < 1160
-            ? setIsDeviceLarge(false)
-            : setIsDeviceLarge(true);
+         if (window.innerWidth < 1160) setIsDeviceLarge(false);
+         else setIsDeviceLarge(true);
       };
 
       checkScreenWidth();

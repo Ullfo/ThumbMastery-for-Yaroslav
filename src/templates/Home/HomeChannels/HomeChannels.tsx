@@ -150,8 +150,8 @@ const HomeChannels: React.FC = () => {
                proven, data-driven strategies.
             </h3>
             <p className="pb-6 sm:pb-9 max-w-[860px] text-overline2 sm:text-h4 text-grey--500">
-               Don't waste your time struggling to make a thumbnail, only for it
-               to flop.
+               Don&#39;t waste your time struggling to make a thumbnail, only
+               for it to flop.
                <br />
                <br /> No matter how good your content is, viewers won&#39;t
                click unless you give them a reason to do so.
