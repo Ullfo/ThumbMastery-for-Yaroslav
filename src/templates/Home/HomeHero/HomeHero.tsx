@@ -116,7 +116,7 @@ const HomeHero: React.FC = () => {
             <span className="relative inline-block ">
                Thumbnails
                <span className="absolute bottom-0 left-0 w-full h-1 sm:h-2 bg-gradient--3 bg-[length:200%_200%] animate-gradientShift"></span>
-            </span>
+            </span>{" "}
             That Deliver Absolutely ZERO Results?
          </h1>
 

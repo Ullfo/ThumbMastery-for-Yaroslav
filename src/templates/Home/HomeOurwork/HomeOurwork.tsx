@@ -154,7 +154,7 @@ const HomeOurwork: React.FC = () => {
             <h3 className="text-center text-b2 sm:text-h2 font-bold ">
                Get started now
             </h3>
-            <AppButton>BOOK A CALL</AppButton>
+            <AppButton>START NOW</AppButton>
             <CircleIcon className="absolute mx-auto size-[250px] sm:size-[440px] top-[-40px] sm:top-[-75px] -z-10" />
          </div>
       </section>

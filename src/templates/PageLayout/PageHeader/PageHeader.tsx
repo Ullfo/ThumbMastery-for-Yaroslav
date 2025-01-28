@@ -79,7 +79,7 @@ const PageHeader: React.FC = () => {
                   width="210px"
                   variant="secondary"
                >
-                  BOOK A CALL
+                  START NOW
                </AppButton>
             </>
          ) : (

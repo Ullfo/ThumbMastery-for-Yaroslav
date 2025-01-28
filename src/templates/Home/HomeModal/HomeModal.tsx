@@ -47,7 +47,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
       {
          id: "1",
          type: "radio",
-         name: "Do you create long-form vi deos on YouTube?",
+         name: "Do you create long-form videos on YouTube?",
          ranges: ["Yes", "No"],
       },
       {

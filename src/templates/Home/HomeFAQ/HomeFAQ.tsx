@@ -19,7 +19,7 @@ const HomeFAQ: React.FC = () => {
       {
          title: "What’s your turnaround time?",
          description:
-            "Typically, we deliver thumbnails within 24-48 hours, depending on the complexity and package you choose.",
+            "Typically, we deliver thumbnails within 24-48 hours, depending on the complexity of the thumbnail.",
       },
       {
          title: "What if I don’t like the thumbnail?",

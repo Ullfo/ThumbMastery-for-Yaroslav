@@ -49,7 +49,7 @@ const HomeChannels: React.FC = () => {
          video: "/videos/MoVlogs.mp4",
          image: man9,
          name: "MoVlogs",
-         description: "11,6M subscribers",
+         description: "11.6M subscribers",
       },
       {
          video: "/videos/NathanNazareth.mp4",
@@ -103,7 +103,7 @@ const HomeChannels: React.FC = () => {
 
          <div>
             <Marquee
-               speed={30}
+               speed={90}
                pauseOnHover
                className="flex py-5 my-4 sm:my-[80px]"
             >
@@ -120,6 +120,10 @@ const HomeChannels: React.FC = () => {
                         loop
                         onMouseEnter={(e) => (e.currentTarget.muted = false)}
                         onMouseLeave={(e) => (e.currentTarget.muted = true)}
+                        onClick={(e) => {
+                           e.currentTarget.muted = false;
+                           e.currentTarget.play();
+                        }}
                      >
                         <source src={item.video} type="video/mp4" />
                      </video>
