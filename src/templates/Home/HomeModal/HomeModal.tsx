@@ -162,7 +162,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
          .join("\n\n");
 
       try {
-         const response = await fetch("/api/send-message", {
+         await fetch("/api/send-message", {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
