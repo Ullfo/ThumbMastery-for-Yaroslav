@@ -120,10 +120,6 @@ const HomeChannels: React.FC = () => {
                         loop
                         onMouseEnter={(e) => (e.currentTarget.muted = false)}
                         onMouseLeave={(e) => (e.currentTarget.muted = true)}
-                        onClick={(e) => {
-                           e.currentTarget.muted = false;
-                           e.currentTarget.play();
-                        }}
                      >
                         <source src={item.video} type="video/mp4" />
                      </video>

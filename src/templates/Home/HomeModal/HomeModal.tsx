@@ -143,7 +143,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
       },
    ];
 
-   const sendToTelegram = (): void => {
+   const sendToTelegram = async (): Promise<void> => {
       const validateErrors = mainData.map((item, index) => {
          return !inputAnswers[index]?.trim();
       });
@@ -161,20 +161,18 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
          })
          .join("\n\n");
 
-      fetch("/api/send-message", {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify({ message: message }),
-      })
-         .then((response) => {
-            if (!response.ok) {
-               throw new Error("Failed to send message");
-            }
-            setEnding(true);
-         })
-         .catch(() => console.log("Failed"));
+      try {
+         const response = await fetch("/api/send-message", {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message: message }),
+         });
+         setEnding(true);
+      } catch (error) {
+         console.log("Failed", error);
+      }
    };
 
    const handleChanger = (index: number, value: string): void => {
