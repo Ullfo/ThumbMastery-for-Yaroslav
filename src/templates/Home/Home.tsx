@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import HomeHero from "./HomeHero/HomeHero";
 import HomeFAQ from "./HomeFAQ/HomeFAQ";
