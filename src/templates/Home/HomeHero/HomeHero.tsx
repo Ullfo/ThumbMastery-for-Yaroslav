@@ -19,6 +19,7 @@ import man9 from "@/assets/images/man-9.png";
 import man10 from "@/assets/images/man-10.png";
 import man11 from "@/assets/images/man-11.png";
 import man12 from "@/assets/images/man-12.png";
+import man14 from "@/assets/images/man-14.png";
 import CircleLeft from "@/assets/icons/circle-left.svg";
 import CircleRight from "@/assets/icons/circle-right.svg";
 
@@ -27,76 +28,64 @@ const HomeHero: React.FC = () => {
 
    const data = [
       {
-         name: "Jordan Bown",
-         description: "284k subscribers",
-         image: man6,
-         link: "https://www.youtube.com/@JordanBown",
-      },
-      {
-         name: "CEOCAST",
-         description: "268k subscribers",
-         image: man7,
-         link: "https://www.youtube.com/@ceocast",
-      },
-      {
-         name: "PBD Podcast",
-         description: "2.43M subscribers",
-         image: man1,
-         link: "https://www.youtube.com/@PBDPodcast",
-      },
-      {
-         name: "Harry Bray",
-         description: "402k subscribers",
-         image: man12,
-         link: "https://www.youtube.com/@StandOutTV_",
-      },
-      {
-         name: "Ahmad Mahmood",
-         description: "176k subscribers",
-         image: man11,
-         link: "https://www.youtube.com/@AhmadMahmoodShow",
-      },
-      {
-         name: "Artur Rehi",
-         description: "708k subscribers",
-         image: man10,
-         link: "https://www.youtube.com/@arturrehi/videos",
-      },
-      {
-         name: "King Azoulay",
-         description: "434k subscribers",
-         image: man8,
-         link: "https://www.youtube.com/@Kingazoulay",
-      },
-      {
-         name: "Nathan Nazareth",
-         description: "319k subscribers",
-         image: man5,
-         link: "https://www.youtube.com/@Nathannazareth/videos",
-      },
-      {
          name: "Mark Tilbury",
-         description: "4,54M subscribers",
+         description: "4.59M subscribers",
          image: man4,
          link: "https://www.youtube.com/@marktilbury",
       },
       {
-         name: "MoVlogs",
-         description: "11,6M subscribers",
-         image: man9,
-         link: "https://www.youtube.com/@MoVlogs/videos",
+         name: "PBD Podcast",
+         description: "2.45M subscribers",
+         image: man1,
+         link: "https://www.youtube.com/@PBDPodcast",
       },
       {
          name: "Hamza Ahmed",
-         description: "2,3M subscribers",
+         description: "2.29M subscribers",
          image: man3,
          link: "https://www.youtube.com/@Hamza97",
+      },
+      {
+         name: "Simon Squibb",
+         description: "1.67M subscribers",
+         image: man14,
+         link: "https://www.youtube.com/@SimonSquibb",
       },
       {
          name: "Sebastian Ghiorghiu",
          description: "1M subscribers",
          image: man2,
          link: "https://www.youtube.com/@sebb",
+      },
+      {
+         name: "King Azoulay",
+         description: "483k subscribers",
+         image: man8,
+         link: "https://www.youtube.com/@Kingazoulay",
+      },
+      {
+         name: "Nathan Nazareth",
+         description: "368k subscribers",
+         image: man5,
+         link: "https://www.youtube.com/@Nathannazareth/videos",
+      },
+      {
+         name: "Jordan Bown",
+         description: "293k subscribers",
+         image: man6,
+         link: "https://www.youtube.com/@JordanBown",
+      },
+      {
+         name: "CEOCAST",
+         description: "269k subscribers",
+         image: man7,
+         link: "https://www.youtube.com/@ceocast",
+      },
+      {
+         name: "Ahmad Mahmood Show",
+         description: "198k subscribers",
+         image: man11,
+         link: "https://www.youtube.com/@AhmadMahmoodShow",
       },
    ];
 

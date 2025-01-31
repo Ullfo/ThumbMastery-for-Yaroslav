@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
@@ -13,8 +13,12 @@ import man12 from "@/assets/images/man-12.png";
 import man13 from "@/assets/images/man-13.png";
 import BlurIcon from "@/assets/icons/blur.svg";
 import CircleIcon from "@/assets/icons/circle.svg";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeChannels: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [isDeviceLarge, setIsDeviceLarge] = useState(true);
+
    const topData = [
       {
          title: "Zero",
@@ -77,11 +81,26 @@ const HomeChannels: React.FC = () => {
       },
    ];
 
+   useEffect(() => {
+      const checkScreenWidth = () => {
+         if (window.innerWidth < 1160) setIsDeviceLarge(false);
+         else setIsDeviceLarge(true);
+      };
+      checkScreenWidth();
+      window.addEventListener("resize", checkScreenWidth);
+      return () => window.removeEventListener("resize", checkScreenWidth);
+   }, []);
+
    return (
       <section
          id="testimonials"
          className="flex flex-col items-center mb-9 sm:mb-[130px]"
       >
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+
          <h3 className="pb-3 sm:pb-12 text-b2 sm:text-h3 text-center font-medium">
             Trusted by YouTube&#39;s biggest business channels
          </h3>
@@ -113,9 +132,10 @@ const HomeChannels: React.FC = () => {
                      className="mx-2 list-none duration-100 hover:-translate-y-5"
                   >
                      <video
-                        className=" rounded-[20px] h-[290px] sm:h-[550px] w-[164px] sm:w-[324px]"
-                        controls
+                        className="rounded-[20px] h-[290px] sm:h-[550px] w-[164px] sm:w-[312px]"
+                        playsInline
                         autoPlay
+                        controls={isDeviceLarge}
                         muted
                         loop
                         onMouseEnter={(e) => (e.currentTarget.muted = false)}
@@ -161,7 +181,10 @@ const HomeChannels: React.FC = () => {
                hook your ideal viewer from the start and keep them engaged until
                they buy your products and services.
             </p>
-            <AppButton className="w-[220px] sm:w-[370px]">
+            <AppButton
+               onClick={() => setIsModalOpen(true)}
+               className="w-[220px] sm:w-[370px]"
+            >
                BOOST YOUR SALES
             </AppButton>
 

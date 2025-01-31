@@ -1,15 +1,25 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 import AppButton from "@/components/AppButton/AppButton";
 import CircleIcon from "@/assets/icons/circle-logo.svg";
 import StarIcon from "@/assets/icons/star.svg";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeAbout: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
    return (
       <section
          id="about-us"
          className="flex flex-col max-w-[1120px] mx-auto mb-3 sm:mb-[170px]"
       >
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+
          <div className="relative flex flex-col items-center sm:items-start sm:ml-auto">
             <p className="text-overline2 sm:text-h4 text-grey--500 max-w-[660px] pb-4 sm:pb-12">
                If YouTube is just a hobby for you, or you&#39;re okay with
@@ -28,7 +38,11 @@ const HomeAbout: React.FC = () => {
                <br></br> It&#39;s time to grab, retain, and monetize their
                attention with premium packaging.
             </p>
-            <AppButton variant="secondary" className="sm:w-[440px]">
+            <AppButton
+               onClick={() => setIsModalOpen(true)}
+               variant="secondary"
+               className="sm:w-[440px]"
+            >
                BECOME YOUR INDUSTRY LEADER
             </AppButton>
             <StarIcon className="absolute size-64 sm:size-[760px] rigth-[-100px] sm:right-[620px] top-48 sm:-top-[90px] -z-10" />
@@ -51,7 +65,12 @@ const HomeAbout: React.FC = () => {
                and split-testing to grab, retain, and monetize the attention of
                your ideal audience.
             </p>
-            <AppButton className="w-44 sm:w-[320px]">WORK WITH US</AppButton>
+            <AppButton
+               onClick={() => setIsModalOpen(true)}
+               className="w-44 sm:w-[320px]"
+            >
+               WORK WITH US
+            </AppButton>
             <CircleIcon className="sm:absolute size-60 sm:size-[780px] -my-3 mx-auto sm:m-0 sm:right-[-220px] sm:-top-[130px] -z-10" />
          </div>
       </section>

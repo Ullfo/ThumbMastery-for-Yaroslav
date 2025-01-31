@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
@@ -19,8 +21,11 @@ import work6 from "@/assets/images/work-6.jpg";
 import work7 from "@/assets/images/work-7.jpg";
 import work8 from "@/assets/images/work-8.jpg";
 import CircleIcon from "@/assets/icons/circle.svg";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeOurwork: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
    const dataTop = [
       {
          image: work1,
@@ -88,13 +93,17 @@ const HomeOurwork: React.FC = () => {
          id="portfolio"
          className="flex flex-col items-center mb-12 sm:mb-[100px]"
       >
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+
          <h3 className="pb-1 sm:pb-4 text-center text-b1 sm:text-h2 font-medium sm:font-bold">
             Our work
          </h3>
          <h4 className="pb-3 sm:pb-12 max-w-56 sm:max-w-full text-center text-overline2 sm:text-h3 sm:font-medium text-grey--700">
             Recent thumbnails designed for top business channels.
          </h4>
-
          <Marquee speed={50} pauseOnHover className="-mr-12">
             <ul className="flex gap-2 sm:gap-4 mb-3 sm:mb-5 overflow-x-scroll scrollbar-hide mr-2 sm:mr-4">
                {dataTop.map((item) => (
@@ -124,7 +133,6 @@ const HomeOurwork: React.FC = () => {
                ))}
             </ul>
          </Marquee>
-
          <Marquee speed={50} pauseOnHover direction="right" className="-ml-12">
             <ul className="flex gap-2 sm:gap-4 mb-12 sm:mb-[120px] flex-row-reverse overflow-x-scroll scrollbar-hide ml-2 sm:ml-4">
                {dataBot.map((item) => (
@@ -154,12 +162,13 @@ const HomeOurwork: React.FC = () => {
                ))}
             </ul>
          </Marquee>
-
          <div className="relative flex flex-col items-center gap-4 sm:gap-7 py-6 sm:py-12 w-full max-w-[290px] sm:max-w-[820px] bg-gradient--2 rounded-[20px] sm:rounded-[32px] bg-[length:200%_200%] animate-gradientShift">
             <h3 className="text-center text-b2 sm:text-h2 font-bold ">
                Get started now
             </h3>
-            <AppButton>START NOW</AppButton>
+            <AppButton onClick={() => setIsModalOpen(true)}>
+               START NOW
+            </AppButton>
             <CircleIcon className="absolute mx-auto size-[250px] sm:size-[440px] top-[-40px] sm:top-[-75px] -z-10" />
          </div>
       </section>

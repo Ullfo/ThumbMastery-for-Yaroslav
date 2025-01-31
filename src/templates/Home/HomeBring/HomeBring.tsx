@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
    GalleryFavorite,
    SecurityTime,
@@ -9,8 +11,11 @@ import {
 } from "iconsax-react";
 
 import AppButton from "@/components/AppButton/AppButton";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeBring: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
    const data = [
       {
          image: GalleryFavorite,
@@ -54,6 +59,11 @@ const HomeBring: React.FC = () => {
          id="services"
          className="flex flex-col items-center gap-[14px] sm:gap-[42px] mb-9 sm:mb-[100px]"
       >
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+         ;
          <h3 className="font-poppins text-b1 sm:text-h2 text-center font-medium sm:font-bold">
             What do we bring to the table?
          </h3>
@@ -77,7 +87,10 @@ const HomeBring: React.FC = () => {
                </li>
             ))}
          </ul>
-         <AppButton className="w-[275px] sm:w-[370px]">
+         <AppButton
+            onClick={() => setIsModalOpen(true)}
+            className="w-[275px] sm:w-[370px]"
+         >
             SKYROCKET YOUR GROWTH
          </AppButton>
       </section>

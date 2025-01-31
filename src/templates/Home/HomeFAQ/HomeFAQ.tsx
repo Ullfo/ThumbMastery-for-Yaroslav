@@ -1,10 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 import AppDropdown from "@/components/AppDropdown/AppDropdown";
 import AppButton from "@/components/AppButton/AppButton";
 import CircleIcon from "@/assets/icons/circle.svg";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeFAQ: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
    const data = [
       {
          title: "Why are thumbnails important?",
@@ -61,6 +65,11 @@ const HomeFAQ: React.FC = () => {
          id="faq"
          className="flex flex-col items-center mb-12 sm:mb-[100px]"
       >
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+
          <h3 className="text-b2 sm:text-h2 text-center font-medium sm:font-bold pb-3 sm:pb-10">
             Frequently Asked Questions
          </h3>
@@ -73,12 +82,16 @@ const HomeFAQ: React.FC = () => {
                />
             ))}
          </div>
-
          <div className="relative flex flex-col items-center gap-4 sm:gap-7 py-5 sm:py-12 px-2 sm:px-8 w-full max-w-[290px] sm:max-w-[936px] rounded-[20px] sm:rounded-[32px] bg-gradient--2 bg-[length:300%_100%] animate-gradientShift">
             <h3 className="text-b2 sm:text-h2 text-grey--700 text-center font-bold max-w-64 sm:max-w-none">
                Ready to start working with us?
             </h3>
-            <AppButton className="w-[140px] sm:w-[250px]">START NOW</AppButton>
+            <AppButton
+               onClick={() => setIsModalOpen(true)}
+               className="w-[140px] sm:w-[250px]"
+            >
+               START NOW
+            </AppButton>
             <CircleIcon className="absolute size-[110px] sm:size-[320px] -left-12 sm:left-[-140px] -top-9 sm:top-[-80px] -z-10" />
             <CircleIcon className="absolute size-[150px] sm:size-[320px] -right-16 sm:right-[-120px] top-[70px] sm:top-[60px] -z-10" />
          </div>

@@ -1,11 +1,16 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import cn from "classnames";
 
 import AppButton from "@/components/AppButton/AppButton";
 import ArrowsIcon from "@/assets/icons/arrows-down.svg";
 import CircleDouble from "@/assets/icons/circle-double.svg";
+import HomeModal from "../HomeModal/HomeModal";
 
 const HomeSteps: React.FC = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
    const data = [
       {
          text: "Fill out the form",
@@ -31,6 +36,11 @@ const HomeSteps: React.FC = () => {
    ];
    return (
       <section className="relative flex flex-col items-center gap-4 sm:gap-10 mb-9 sm:mb-[100px]">
+         <HomeModal
+            visible={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+         />
+
          <h3 className="text-b1 sm:text-h2 font-medium sm:font-bold">
             Here are your next steps
          </h3>
@@ -54,6 +64,7 @@ const HomeSteps: React.FC = () => {
                            {item.text}
                         </p>
                         <AppButton
+                           onClick={() => setIsModalOpen(true)}
                            variant="secondary"
                            className="w-[100px] sm:w-[150px]"
                         >
@@ -69,9 +80,12 @@ const HomeSteps: React.FC = () => {
             ))}
             <ArrowsIcon className="absolute left-[47%] sm:left-[49%] top-3 sm:top-3 w-[22px] h-[460px] sm:h-[830px]" />
          </ul>
-
-         <AppButton className="w-[150px] sm:w-[310px]">START NOW</AppButton>
-
+         <AppButton
+            onClick={() => setIsModalOpen(true)}
+            className="w-[150px] sm:w-[310px]"
+         >
+            START NOW
+         </AppButton>
          <CircleDouble className="absolute bottom-[10px] sm:bottom-0 xl:bottom-[-70px] right-1 lg:right-[150px] w-[170px] h-[160px] sm:w-[300px] sm:h-[280px] xl:w-[400px] xl:h-[380px] -z-10" />
       </section>
    );
