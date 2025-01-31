@@ -154,12 +154,12 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
 
       if (hasEmptyFields) return;
 
-      const message = mainData
+      const message = `*NEW ORDER*\n\n ${mainData
          .map((item, index) => {
             const questionName = item.name || `What's your last name?`;
-            return `${index + 1}) ${questionName}:\n - ${inputAnswers[index]}`;
+            return `${index + 1}) ${questionName}: \n - ${inputAnswers[index]}`;
          })
-         .join("\n\n");
+         .join("\n\n")}`;
 
       try {
          await fetch("/api/send-message", {
