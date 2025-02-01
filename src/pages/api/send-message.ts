@@ -22,7 +22,7 @@ export class TelegramAPI {
          );
 
          const data = await response.json();
-         console.log("Telegram API Response ALALALLALALAL:", data);
+         console.log("Telegram API Response:", data);
       } catch (error) {
          console.error(error);
       }
@@ -41,7 +41,7 @@ export default async function handler(
    try {
       await TelegramAPI.sendMessage(message);
       return res.status(200).json({
-         success: `TG_BOT_TOKEN:${TG_BOT_TOKEN} , TG_CHAT_ID:${TG_CHAT_ID} `,
+         success: "Message has been sent",
       });
    } catch (error) {
       return res.status(500).json(error);
