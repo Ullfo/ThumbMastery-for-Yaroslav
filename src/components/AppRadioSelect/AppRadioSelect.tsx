@@ -17,9 +17,7 @@ const AppRadioSelect: React.FC<AppRadioSelectProps> = ({
 }) => {
    return (
       <form className="space-y-1 mb-5">
-         <h5 className="text-overline2 sm:text-b1 sm:font-medium text-grey--600">
-            {name}
-         </h5>
+         <h5 className="text-overline2 sm:text-b1 text-grey--600">{name}</h5>
          {ranges.map((range) => (
             <label
                key={range}
@@ -30,6 +28,9 @@ const AppRadioSelect: React.FC<AppRadioSelectProps> = ({
                   value={range}
                   checked={selectedValue === range}
                   onChange={() => onChange(range)}
+                  style={{
+                     borderColor: error ? "#ce1821" : "",
+                  }}
                />
                <span className="text-secondary--700 text-overline2">
                   {range}

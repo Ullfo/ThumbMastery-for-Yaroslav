@@ -62,10 +62,9 @@ const AppSelectDropdown: React.FC<AppSelectDropdownProps> = ({
          tabIndex={0}
          onKeyDown={handleKeyPress}
          className="relative w-full"
-         style={{ maxWidth: width }}
       >
          {label && (
-            <h5 className="text-overline2 sm:font-medium text-grey--600 mb-1 sm:mb-2 sm:whitespace-nowrap">
+            <h5 className="text-overline2 sm:text-b1 text-grey--600 mb-1 sm:mb-2">
                {label}
             </h5>
          )}
@@ -77,6 +76,7 @@ const AppSelectDropdown: React.FC<AppSelectDropdownProps> = ({
             onClick={onClose}
             aria-haspopup="listbox"
             aria-expanded={isOpen ? "true" : "false"}
+            style={{ maxWidth: width }}
          >
             <span className={`text-overline2 ${!value && "text-grey--400"}`}>
                {options.find((option) => option.label === value)?.label ||
@@ -98,6 +98,7 @@ const AppSelectDropdown: React.FC<AppSelectDropdownProps> = ({
                className={`${
                   error ? "border-error--400" : "border-primary--400"
                } absolute top-full left-0 w-full mt-1 bg-white border rounded-[4px] shadow-lg max-h-60 overflow-auto z-10`}
+               style={{ maxWidth: width }}
             >
                {options.map((option, index) => (
                   <div

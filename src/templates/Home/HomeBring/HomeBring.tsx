@@ -63,7 +63,7 @@ const HomeBring: React.FC = () => {
             visible={isModalOpen}
             onClose={() => setIsModalOpen(false)}
          />
-         ;
+
          <h3 className="font-poppins text-b1 sm:text-h2 text-center font-medium sm:font-bold">
             What do we bring to the table?
          </h3>

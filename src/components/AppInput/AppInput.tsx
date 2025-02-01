@@ -30,7 +30,7 @@ const AppInput: React.FC<AppInputProps> = ({
    return (
       <div className="w-full" style={{ maxWidth: width }}>
          {label && (
-            <h5 className="text-overline2 sm:font-medium text-grey--600 mb-2 sm:whitespace-nowrap">
+            <h5 className="text-overline2 sm:text-b1 text-grey--600 mb-1 sm:mb-2 sm:whitespace-nowrap">
                {label}
             </h5>
          )}

@@ -21,6 +21,7 @@ export default function RootLayout({
          <head>
             <link rel="icon" href="/favicon.ico" />
             <link rel="apple-touch-icon" href="/favicon.ico" />
+            <meta property="og:image" content="/main-img.png" />
          </head>
          <body>
             <PageHeader />

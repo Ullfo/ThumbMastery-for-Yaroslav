@@ -154,10 +154,18 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
 
       if (hasEmptyFields) return;
 
-      const message = `*NEW ORDER*\n\n ${mainData
+      const escapeMarkdownV2 = (text: string): string => {
+         return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, "\\$&");
+      };
+
+      const message = `✅ *NEW ORDER* ☑️\n\n${mainData
          .map((item, index) => {
-            const questionName = item.name || `What's your last name?`;
-            return `${index + 1}) ${questionName}: \n - ${inputAnswers[index]}`;
+            const questionName = escapeMarkdownV2(
+               item.name || `What's your last name?`
+            );
+            const answer = escapeMarkdownV2(inputAnswers[index]);
+
+            return `${index + 1}\\)\\ *${questionName}*: \n _${answer}_`;
          })
          .join("\n\n")}`;
 
@@ -241,7 +249,7 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
          </h4>
 
          <div className="flex flex-col items-center max-h-[calc(100vh-200px)] overflow-y-auto">
-            <div className="left-20 space-y-5 text-start mb-7">
+            <div className="left-20 space-y-5 text-start mb-7 pr-2">
                {mainData.map((question, index) => (
                   <React.Fragment key={question.id}>
                      {question.type === "radio" && (
@@ -285,7 +293,9 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
 
                      {question.type === "phone" && (
                         <div>
-                           <h5>{question.name}</h5>
+                           <h5 className="text-overline2 sm:text-b1 mb-1 text-grey--600">
+                              {question.name}
+                           </h5>
                            <PhoneInput
                               country={"us"}
                               excludeCountries={["ru"]}
@@ -295,26 +305,28 @@ const HomeModal: React.FC<HomeModalProps> = ({ visible, onClose }) => {
                               inputStyle={{
                                  border: errors[index]
                                     ? "1px solid #ce1821"
-                                    : "1px solid #00d3ff",
+                                    : "1px solid #03F0FE",
                                  borderRadius: "4px",
-                                 width: "280px",
+                                 width: "100%",
+                                 maxWidth: "280px",
                                  height: "35px",
                               }}
                               buttonStyle={{
                                  border: errors[index]
                                     ? "1px solid #ce1821"
-                                    : "1px solid #00d3ff",
+                                    : "1px solid #03F0FE",
                                  borderRadius: "4px 0 0 4px",
                               }}
                               dropdownStyle={{
                                  border: "1px solid #C6FCFF",
                                  borderRadius: "4px",
-                                 maxWidth: "280px",
+                                 width: "auto",
+                                 // maxWidth: "280px",
+
                                  maxHeight: "190px",
                               }}
                               searchStyle={{
                                  border: "1px solid #ddd",
-                                 borderRadius: "4px",
                               }}
                            />
                            {errors[index] && (

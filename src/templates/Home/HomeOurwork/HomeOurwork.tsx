@@ -104,64 +104,68 @@ const HomeOurwork: React.FC = () => {
          <h4 className="pb-3 sm:pb-12 max-w-56 sm:max-w-full text-center text-overline2 sm:text-h3 sm:font-medium text-grey--700">
             Recent thumbnails designed for top business channels.
          </h4>
-         <Marquee speed={50} pauseOnHover className="-mr-12">
-            <ul className="flex gap-2 sm:gap-4 mb-3 sm:mb-5 overflow-x-scroll scrollbar-hide mr-2 sm:mr-4">
-               {dataTop.map((item) => (
-                  <li key={item.title} className="flex-shrink-0">
-                     <Image
-                        src={item.image}
-                        alt={`Youtube video ${item.title}`}
-                        className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
-                     />
-                     <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
+
+         <div>
+            <Marquee speed={50} pauseOnHover>
+               <ul className="flex gap-2 sm:gap-4 mb-3 sm:mb-5 overflow-x-scroll scrollbar-hide mr-2 sm:mr-4">
+                  {dataTop.map((item) => (
+                     <li key={item.title} className="flex-shrink-0">
                         <Image
-                           src={item.avatar}
-                           alt={`Youtube channel ${item.channel}`}
-                           className="size-[30px] sm:size-[42px]"
+                           src={item.image}
+                           alt={`Youtube video ${item.title}`}
+                           className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
                         />
-                        <div className="w-full text-grey--500">
-                           <h5 className="mb-1 max-w-32 sm:max-w-full text-overline1 sm:text-b1 sm:font-bold line-clamp-2">
-                              {item.title}
-                           </h5>
-                           <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
-                              <p>{item.channel}</p>
-                              <p>{item.views}</p>
+                        <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
+                           <Image
+                              src={item.avatar}
+                              alt={`Youtube channel ${item.channel}`}
+                              className="size-[30px] sm:size-[42px]"
+                           />
+                           <div className="w-full text-grey--500">
+                              <h5 className="mb-1 max-w-32 sm:max-w-full text-overline1 sm:text-b1 sm:font-bold line-clamp-2">
+                                 {item.title}
+                              </h5>
+                              <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
+                                 <p>{item.channel}</p>
+                                 <p>{item.views}</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  </li>
-               ))}
-            </ul>
-         </Marquee>
-         <Marquee speed={50} pauseOnHover direction="right" className="-ml-12">
-            <ul className="flex gap-2 sm:gap-4 mb-12 sm:mb-[120px] flex-row-reverse overflow-x-scroll scrollbar-hide ml-2 sm:ml-4">
-               {dataBot.map((item) => (
-                  <li key={item.title} className="flex-shrink-0">
-                     <Image
-                        src={item.image}
-                        alt={`Youtube video ${item.title}`}
-                        className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
-                     />
-                     <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
+                     </li>
+                  ))}
+               </ul>
+            </Marquee>
+            <Marquee speed={50} pauseOnHover direction="right">
+               <ul className="flex gap-2 sm:gap-4 mb-12 sm:mb-[120px] flex-row-reverse overflow-x-scroll scrollbar-hide ml-2 sm:ml-4">
+                  {dataBot.map((item) => (
+                     <li key={item.title} className="flex-shrink-0">
                         <Image
-                           src={item.avatar}
-                           alt={`Youtube channel ${item.channel}`}
-                           className="size-[30px] sm:size-[42px]"
+                           src={item.image}
+                           alt={`Youtube video ${item.title}`}
+                           className="mb-2 sm:mb-3 rounded-lg sm:rounded-[42px] w-[164px] sm:w-[490px] h-[92px] sm:h-[280px]"
                         />
-                        <div className="w-full text-grey--500">
-                           <h5 className="mb-1 max-w-32 sm:max-w-full text-overline1 sm:text-b1 sm:font-bold line-clamp-2">
-                              {item.title}
-                           </h5>
-                           <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
-                              <p>{item.channel}</p>
-                              <p>{item.views}</p>
+                        <div className="flex items-start gap-1 sm:gap-2 max-w-[490px]">
+                           <Image
+                              src={item.avatar}
+                              alt={`Youtube channel ${item.channel}`}
+                              className="size-[30px] sm:size-[42px]"
+                           />
+                           <div className="w-full text-grey--500">
+                              <h5 className="mb-1 max-w-32 sm:max-w-full text-overline1 sm:text-b1 sm:font-bold line-clamp-2">
+                                 {item.title}
+                              </h5>
+                              <div className="flex justify-between sm:font-medium text-overline3 sm:text-b1 bg-primary--50 rounded-md px-[6px] p-[2px]">
+                                 <p>{item.channel}</p>
+                                 <p>{item.views}</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  </li>
-               ))}
-            </ul>
-         </Marquee>
+                     </li>
+                  ))}
+               </ul>
+            </Marquee>
+         </div>
+
          <div className="relative flex flex-col items-center gap-4 sm:gap-7 py-6 sm:py-12 w-full max-w-[290px] sm:max-w-[820px] bg-gradient--2 rounded-[20px] sm:rounded-[32px] bg-[length:200%_200%] animate-gradientShift">
             <h3 className="text-center text-b2 sm:text-h2 font-bold ">
                Get started now

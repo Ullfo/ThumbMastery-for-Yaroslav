@@ -16,6 +16,7 @@ export class TelegramAPI {
                body: JSON.stringify({
                   chat_id: TG_CHAT_ID,
                   text: message,
+                  parse_mode: "MarkdownV2",
                }),
             }
          );
