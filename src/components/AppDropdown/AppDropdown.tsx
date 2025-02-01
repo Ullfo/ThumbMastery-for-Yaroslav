@@ -34,9 +34,9 @@ const AppDropdown: React.FC<AppDropdownProps> = ({ content, title }) => {
             <ArrowCircleDown
                color="#003AD2"
                variant="Bulk"
-               className={`size-[30px] sm:size-10 duration-500 hover:opacity-50 ${
+               className={`duration-500 hover:opacity-50 ${
                   isOpen && "rotate-180"
-               }`}
+               } w-[30px] min-w-[30px] sm:min-w-10`}
             />
          </div>
          <div ref={contentRef} className="max-h-0 overflow-hidden duration-300">

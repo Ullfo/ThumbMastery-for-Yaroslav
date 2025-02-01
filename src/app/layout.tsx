@@ -4,7 +4,7 @@ import PageHeader from "@/templates/PageLayout/PageHeader/PageHeader";
 import PageFooter from "@/templates/PageLayout/PageFooter/PageFooter";
 
 export const metadata: Metadata = {
-   title: "ThumbMastery - YouTube Thumbnails That Drive Sales",
+   title: "ThumbMastery - Thumbnail Agency for Business Owners",
    description:
       "Transform your YouTube channel into a sales machine with ThumbMastery. Custom thumbnails based on viewer psychology and data-driven strategies to increase views, CTR, and revenue. Save time and boost your channel's performance with expert video packaging.",
    keywords:
@@ -19,9 +19,9 @@ export default function RootLayout({
    return (
       <html lang="en">
          <head>
+            <meta property="og:image" content="/main-img.png" />
             <link rel="icon" href="/favicon.ico" />
             <link rel="apple-touch-icon" href="/favicon.ico" />
-            <meta property="og:image" content="/main-img.png" />
          </head>
          <body>
             <PageHeader />
